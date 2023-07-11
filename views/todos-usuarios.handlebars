@@ -1,0 +1,35 @@
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Usuários Cadastrados</h1>
+            <ol class="breadcrumb mb-4"></ol>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome Completo</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Nível de Permissão</th>
+                                <th scope="col">Data de Criação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each usuarios}}
+                                    <tr>
+                                        <td>{{dataValues.nome}}</td>
+                                        <td>{{dataValues.email}}</td>
+                                        <td>{{dataValues.permissao}}</td>
+                                        <td>{{dataValues.createdAt}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-info"><i class="fa-solid fa-eye" style="color: #ffffff;"></i></button>
+                                        </td>
+                                    </tr>
+                            {{/each}}       
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,45 @@
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Cadastrar Novo Projeto</h1>
+            <ol class="breadcrumb mb-4"></ol>
+            <div id="alerta" class="alert alert-success" style="display: none;">
+                Projeto foi inserido na Base!
+            </div>
+
+            <form action="/projetos/add" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputTitulo">Título do Projeto</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Digite o Título do Projeto.">
+                    </div>
+                    <div class="form-group col-md-6 mt-2">
+                        <label for="inputDescricao">Descrição</label>
+                        <textarea type="text" class="form-control" id="descricao" name="descricao" placeholder="Fale mais sobre o seu projeto."></textarea>
+                    </div>
+                    <div class="form-group col-md-6 mt-2">
+                        <label for="inputLink">Link do Projeto</label>
+                        <input type="text" class="form-control" id="link" name="link" placeholder="Insira o Link do Projeto.">
+                    </div>
+                    <div class="form-group mt-4">
+                        <label for="inputImagem">Anexar Imagem:</label>
+                        <input type="file" class="form-control-file" id="imagem" name="imagem">
+                    </div>
+                </div>  
+                <button type="submit" class="btn btn-primary mt-3">Adicionar</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script>
+    // Verificar se o parâmetro de sucesso está presente na URL
+const urlParams = new URLSearchParams(window.location.search);
+const success = urlParams.get('success');
+
+// Exibir o alerta se o parâmetro de sucesso for verdadeiro
+if (success) {
+  const alerta = document.getElementById('alerta');
+  alerta.style.display = 'block';
+}
+</script>

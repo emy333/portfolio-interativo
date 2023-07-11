@@ -1,0 +1,52 @@
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Cadastrar Novo Usuário</h1>
+            <ol class="breadcrumb mb-4"></ol>
+            <div id="alerta" class="alert alert-success" style="display: none;">
+                Usuário cadastrado com sucesso!
+            </div>
+
+            <form action="/usuarios/add" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputNome">Nome Completo</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome Completo">
+                    </div>
+                    <div class="form-group col-md-6 mt-2">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6 mt-2">
+                        <label for="inputSenha">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                    </div>
+                </div>
+                        
+                <div class="form-row mt-2">
+                    <div class="form-group col-md-4">
+                        <label for="permissao">Nível de Permissão</label>
+                        <select id="permissao" name="permissao" class="form-control">
+                            <option value="1">1 - Usuário</option>
+                            <option value="2">2 - Administrador</option>
+                        </select>
+                    </div>
+                </div>
+                    
+                <button type="submit" class="btn btn-primary mt-3">Adicionar</button>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script>
+    // Verificar se o parâmetro de sucesso está presente na URL
+const urlParams = new URLSearchParams(window.location.search);
+const success = urlParams.get('success');
+
+// Exibir o alerta se o parâmetro de sucesso for verdadeiro
+if (success) {
+  const alerta = document.getElementById('alerta');
+  alerta.style.display = 'block';
+}
+</script>
